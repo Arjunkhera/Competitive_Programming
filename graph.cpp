@@ -22,7 +22,7 @@ graph::graph(int nodes=0)
  {
    this->nodes = nodes;
 
-   for(auto i:nodes)
+   for(int i=0;i<nodes;i++)
     {
       vertex v(i);
       adjacency_list.push_back(v);
