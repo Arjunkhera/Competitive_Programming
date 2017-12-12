@@ -37,3 +37,67 @@ int main(){
   return 0;
 }
 ```
+
+### what is the difference between "a" and 'a' ?
+
+Look at this [stackoverflow anwer](https://stackoverflow.com/questions/11279126/what-is-the-difference-between-a-and-a)
+
+
+Though here is a just of that :
+'a' is a character literal. It's of type char, with the value 97 on most systems (the ASCII/Latin-1/Unicode encoding for the letter a).
+
+"a" is a string literal. It's of type const char[2], and refers to an array of 2 chars with values 'a' and '\0'. In most, but not all, contexts, a reference to "a" will be implicitly converted to a pointer to the first character of the string.
+
+**Also : A string literal is of type const char[], but string library defines a type std::string. C++ inherited string literals from C, but std::string is specific to C++**
+
+### converting character arrays to strings and vice versa ?
+
+**[char array to string](https://stackoverflow.com/questions/8960087/how-to-convert-a-char-array-to-a-string)**
+```c++
+char arr[] = "arjun";
+
+string str(arr);
+//or
+str = arr;
+```
+
+**[string to char array](https://stackoverflow.com/questions/7352099/stdstring-to-char)**
+```c++
+std::string str = "string";
+const char *cstr = str.c_str();
+
+// neccessarily want char *
+std::string str = "string";
+char *cstr = new char[str.length() + 1];
+strcpy(cstr, str.c_str());
+// do stuff
+delete [] cstr;
+```
+
+### Declaring and passing a variable sized 2d array
+
+[Source : Stackoverflow](https://stackoverflow.com/questions/5508341/create-a-2d-array-with-variable-sized-dimensions)
+
+```c++
+int** array;
+array = new int*[width];
+for (int i = 0;i<width;i++)
+    array[i] = new int[height];
+
+// and to free the memory
+
+for (int i = 0;i<width;i++)
+    delete[] array[i];
+delete[] array;
+
+// passing to a function
+
+void func(int ** array){
+  // here it behave like any 2d array
+  cout<<array[i][j];
+}
+
+// function call
+
+func(array);
+```
