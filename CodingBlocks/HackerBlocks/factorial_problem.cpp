@@ -10,7 +10,7 @@ map<ll,ll> factors;
 int answer;
 
 void solve(ll n,ll k){
-  
+
   ll lowest=INT_MAX,minimum;
   ll factor,temp;
   map<ll,ll>::iterator i = factors.begin();
@@ -22,7 +22,7 @@ void solve(ll n,ll k){
       minimum += temp/factor;
       temp /= factor;
     }
-    i->second = (minimum/i->second);
+    minimum = (minimum/i->second);
 
     if(minimum < lowest)
       lowest = minimum;
@@ -34,7 +34,7 @@ void solve(ll n,ll k){
 }
 
 void factorize(ll n){
-  while (n%2 == 0){
+  while(n%2 == 0){
     factors[2]++;
     n = n/2;
   }
@@ -43,25 +43,25 @@ void factorize(ll n){
     if(n%i==0)
       factors[i] = 0;
 
-    while (n%i == 0){
+    while(n%i == 0){
       factors[i]++;
       n = n/i;
     }
   }
 
-  if (n > 2)
+  if(n > 2)
     factors[n] = 1;
 }
 
 int main(){
   ll t,n,k;
-
   cin>>t;
 
   while(t--){
     cin>>n>>k;
     factorize(k);
     solve(n,k);
+    factors.clear();
     cout<<answer<<endl;
   }
 
