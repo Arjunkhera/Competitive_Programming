@@ -20,13 +20,13 @@ void spiralprint(int **board,int rows,int columns){
       cout<<board[i][end_column]<<" ";
     end_column--;
 
-    if(end_row > start_row){
+    if(start_row <= end_row){
       for(i=end_column;i>=start_column;i--)
         cout<<board[end_row][i]<<" ";
       end_row--;
     }
 
-    if(end_column > start_column){
+    if(start_column <= end_column){
       for(i=end_row;i>=start_row;i--)
         cout<<board[i][start_column]<<" ";
       start_column++;
