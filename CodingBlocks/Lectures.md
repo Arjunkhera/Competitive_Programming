@@ -14,8 +14,6 @@
 
 3. Spiral print matrix
 
-
-
 **Greedy Algorithms**
 1. Activity Selection
 2. busyman[SPOJ]
