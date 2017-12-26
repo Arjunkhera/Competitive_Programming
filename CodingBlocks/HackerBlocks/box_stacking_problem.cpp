@@ -1,50 +1,60 @@
 #include<iostream>
 #include<vector>
-#include<set>
-#include<algorithm>
-using namespace std;
+#include<climits>
 
-set<int> locker;
-bool comparator(pair<int,int> a,pair<int,int> b){
-  return a.first > b.first;
+using namespace std;
+typedef long long int ll;
+ll capacity;
+
+ll solve(vector<ll> &heights,vector<pair<ll,ll>> &arr,vector<bool> visited,ll l,ll b,ll boxes){
+  if(boxes == capacity)
+    return 0;
+
+  ll answer = INT_MIN;
+  for(ll i=0;i<3*capacity;i++){
+    if(visited[i])
+      continue;
+
+    if((arr[i].first<l && arr[i].second<b)||(arr[i].first<b && arr[i].second<l)){
+      visited[i] = true;
+      answer = max(answer,heights[i]+solve(heights,arr,visited,arr[i].first,arr[i].second,boxes+1));
+      //backtrack
+      visited[i] = false;
+    }
+  }
+  return answer;
 }
 
 int main(){
-  int t,n,l,b,h,answer,i,j;
-  vector<pair<int,int>> arr;
+
+  ll t,n,l,b,h,i,j;
+  vector<pair<ll,ll>> arr;
+  vector<ll>heights;
+  vector<bool>visited;
   cin>>t;
 
   while(t--){
     cin>>n;
+    capacity = n;
     for(i=0;i<n;i++){
       cin>>l>>b>>h;
-      arr.push_back(make_pair(l,b*h));
-      arr.push_back(make_pair(b,l*h));
-      arr.push_back(make_pair(h,b*l));
+
+      heights.push_back(l);
+      arr.push_back(make_pair(b,h));
+      visited.push_back(false);
+
+      heights.push_back(b);
+      arr.push_back(make_pair(l,h));
+      visited.push_back(false);
+
+      heights.push_back(h);
+      arr.push_back(make_pair(b,l));
+      visited.push_back(false);
     }
-    sort(arr.begin(),arr.end(),comparator);
 
-    
-    for(int k=0;k<3*n;k++)
-      cout<<arr[k].first<<" "<<arr[k].second<<"\n";
-
-
-    answer = arr[0].first;
-    locker.insert(arr[0].second);
-    j=i=1;
-    while(1){
-      if(i==n||j==3*n)
-        break;
-
-      if(locker.find(arr[j].second) == locker.end()){
-        answer += arr[j].first;
-        locker.insert(arr[j].second);
-        i++;
-      }
-      j++;
-    }
-    cout<<answer<<"\n";
-    locker.clear();
+    cout<<solve(heights,arr,visited,INT_MAX,INT_MAX,0)<<"\n";
+    heights.clear();
+    visited.clear();
     arr.clear();
   }
   return 0;
