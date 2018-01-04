@@ -125,7 +125,35 @@ void displayLevelorderIterative(node<t> *root){
   }
 };
 
-void displayLevelorderRecursive(){};
+template<typename t>
+void displayKthLevel(node<t> *root,int displaylevel,int curlevel){
+  if(root == nullptr)
+    return;
+
+  if(curlevel == displaylevel)
+    std::cout<<root->data<<" ";
+
+  displayKthLevel(root->left,displaylevel,curlevel+1);
+  displayKthLevel(root->right,displaylevel,curlevel+1);
+}
+
+template<typename t>
+void displayLevelorderRecursive(node<t> *root){
+  int maxLevel = getHeight(root);
+
+  for(int i=1;i<=maxLevel;i++){
+    displayKthLevel(root,i,1);
+    std::cout<<"\n";
+  }
+}
+
+template<typename t>
+t countNodes(node<t> *root){
+  if(root == nullptr)
+    return 0;
+
+  return 1+countNodes(root->left)+countNodes(root->right);
+}
 
 template<typename t>
 t getHeight(node<t> *root){

@@ -101,3 +101,9 @@ void func(int ** array){
 
 func(array);
 ```
+
+### Using Templates and issues with them
+
+[Using in header](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file)
+
+**Note** : If we include template classes or functions for a header file, then in order to separate implementation and interface we need to come up with a new method.
