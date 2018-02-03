@@ -2,6 +2,18 @@
 
 using namespace std;
 
+// easier recursive implementation
+node* reverseList(node* head){
+    if(head == nullptr || head->next == nullptr)
+    return head;
+
+    node* temp = reverseList(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return temp;
+}
+
+
 node* reverseListRecursive(node* &head){
   // we have reached the last element of the original list
   if(head->next == nullptr)

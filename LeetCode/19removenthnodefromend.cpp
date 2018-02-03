@@ -1,3 +1,6 @@
+// just change struct name to ListNode, rest of the function is same
+// the remainder of functions are to create a linked list
+
 #include<iostream>
 
 using namespace std;

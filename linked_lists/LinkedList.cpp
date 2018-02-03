@@ -38,6 +38,7 @@ void insertAtTail(node* &head,int data){
   temp->next = newNode;
 }
 
+// returns the node previous to the node whose data is given
 node* findNode(node* head,int data){
   if(head == nullptr)
     return nullptr;
