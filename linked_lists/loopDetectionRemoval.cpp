@@ -40,7 +40,7 @@ void removeLoopHash(node *head){
 }
 
 // floyds cycle finding algorithm
-bool detectLoop(node* head){
+bool detectLoop(node* &head){
   if(head == nullptr)
     return false;
 
@@ -61,7 +61,7 @@ bool detectLoop(node* head){
   return flag;
 }
 
-void removeLoop(node* head){
+void removeLoop(node* &head){
 
   node* slow = head;
   node* fast = head;
@@ -79,7 +79,11 @@ void removeLoop(node* head){
       slow = slow->next;
       fast = fast->next;
   }
-  fast->next = nullptr;
+  if(slow == fast){
+    head = slow->next;
+    slow->next = nullptr;
+  }
+  else fast->next = nullptr;
 }
 
 // helper for makeLoop
