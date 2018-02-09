@@ -33,38 +33,33 @@ void display(node* head){
 }
 
 // solution function
-node* reverseBetween(node* head, int m, int n){
+node* insertionSortList(node* head){
 
   if(head == nullptr || head->next == nullptr)
     return head;
 
-  node* start = nullptr;
-  node* cur = head;
-  int length = 1;
-  while(length<m){
-    start = cur;
-    cur = cur->next;
-    length++;
+  node* cur = head->next;
+  head->next = nullptr;
+  node* temp;
+
+  while(cur != nullptr){
+    if(head->data > cur->data){
+      temp = cur;
+      cur = cur->next;
+      temp->next = head;
+      head = temp;
+      continue;
     }
 
-  node* last = cur;
-  node* tail = nullptr;
-  node* temp;
-  while(length <= n){
+    node* prev = head;
+    while(prev->next != nullptr && prev->next->data < cur->data)
+      prev = prev->next;
+
     temp = cur;
     cur = cur->next;
-    temp->next = tail;
-    tail = temp;
-    length++;
+    temp->next = prev->next;
+    prev->next = temp;
   }
-
-  // join the head of reversed list
-  if(start == nullptr)
-    head = tail;
-  else start->next = tail;
-
-  // join the tail of the reversed list
-  last->next = cur;
 
   return head;
 }
@@ -73,12 +68,10 @@ int main(){
 
   node* head = nullptr;
   readList(head);
-  int m,n;
-  cin>>m>>n;
   display(head);
   cout<<"\n";
 
-  head = reverseBetween(head,m,n);
+  head = insertionSortList(head);
 
   display(head);
   cout<<"\n";
@@ -88,6 +81,5 @@ int main(){
 
 /*
 input
-5 4 3 2 1 -1
-2 4
+3 9 10 2 1 8 3 4 -1
 */

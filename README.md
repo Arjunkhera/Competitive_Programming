@@ -1,7 +1,7 @@
 ## A curated list of links and codes for competitive programming
 
 ### Status :
-Currently questions relating to Linked lists are being added[ 26.01.18 ]. Check out the linked_lists folder for updates.
+Currently questions relating to Linked lists are being added[ 9.02.18 ]. Check out the linked_lists folder for updates.
 
 ### Goals :
 1. Implementations of common data structures and their related questions.
