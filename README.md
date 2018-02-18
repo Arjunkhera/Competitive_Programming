@@ -3,6 +3,7 @@
 ### Status :
 Currently questions relating to Linked lists are being added[ 9.02.18 ]. Check out the linked_lists folder for updates.
 
+Update [ 17.2.18 ] Work started on Tree's. Linked lists shall be eventually phases out to completion soon.
 ### Goals :
 1. Implementations of common data structures and their related questions.
 2. Common algorithm questions asked in placements and interviews.
