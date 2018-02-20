@@ -5,6 +5,7 @@
 #include<queue>
 #include<iomanip>
 
+
 struct tree{
   int data;
   tree* left;

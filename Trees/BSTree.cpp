@@ -223,15 +223,3 @@ std::pair<int,int> getDiameterFast(tree* root){
 
   return std::make_pair(currentDiameter,currentHeight);
 }
-
-int main(){
-
-  // never forget to initialize root to nullptr, otherwise the program would not work
-  tree* root = nullptr;
-  readTree(root);
-
-  displayLevelOrder(root);
-  std::cout<<"\n";
-
-  return 0;
-}

@@ -58,11 +58,11 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
-bool checkBST(tree *root,int min=INT_MIN,int max=INT_MAX){
+bool checkBST(tree *root,int min,int max){
   if(root == nullptr)
     return true;
 
-  if(root->data >= min && root->data =< max && checkBST(root->left,min,root->data) && checkBST(root->right,root->data,max))
+  if(root->data > min && root->data < max && checkBST(root->left,min,root->data) && checkBST(root->right,root->data,max))
     return true;
 
   return false;
@@ -70,7 +70,34 @@ bool checkBST(tree *root,int min=INT_MIN,int max=INT_MAX){
 
 // solution function
 bool isValidBST(tree* root){
-  return checkBST(root);
+  // wont work in case if data is either INT_MIN or INT_MAX
+  return checkBST(root,INT_MIN,INT_MAX);
+  // so use LLINT_MAX and LLINT_MIN
+}
+
+bool inorder(tree* root,tree* &prev){
+
+  // base case
+  if(root == nullptr)
+    return true;
+
+  // check left subtree is BST
+  if(!inorder(root->left,prev))
+    return false;
+
+  // check current node
+  if(prev != nullptr && prev->data >= root->data)
+    return false;
+  prev = root;
+
+  // check right subtree is BST
+  return inorder(root->right,prev);
+}
+
+// preferred solution using inroder traversal
+bool checkBSTindorder(tree* root){
+  tree* prev = nullptr;
+  return inorder(root,prev);
 }
 
 int main(){
