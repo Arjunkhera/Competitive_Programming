@@ -111,8 +111,10 @@ void displayKthLevel(tree *root,int displaylevel,int curlevel){
   if(root == nullptr)
     return;
 
-  if(curlevel == displaylevel)
+  if(curlevel == displaylevel){
     std::cout<<root->data<<" ";
+    return;
+  }
 
   displayKthLevel(root->left,displaylevel,curlevel+1);
   displayKthLevel(root->right,displaylevel,curlevel+1);
@@ -194,7 +196,20 @@ int getHeight(tree* root){
   return std::max(leftHeight,rightHeight);
 }
 
-int getDepth(tree* root,tree* cur){
+// initial values : depth:-1,height=0;
+void getDepth(tree* root,int dat,int &depth,int height){
+
+  // base case : node not found
+  if( root == nullptr )
+    return;
+
+  if(root->data == dat){
+    depth = height;
+    return;
+  }
+
+  getDepth(root->left,dat,depth,height+1);
+  getDepth(root->right,dat,depth,height+1);
 
 }
 

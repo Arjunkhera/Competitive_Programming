@@ -11,12 +11,20 @@ int main(){
 
   // display the tree
   displayLevelorderRecursive(root);
-  std::cout<<"\n--------------";
-  std::cout<<countNodes(root)<<"\n------------";
-  //std::cout<<getHeight(root)<<"\n-------------";
-  std::pair<int,int> heightdia = getDiameterFast(root);
-  std::cout<<heightdia.second<<"\n-------------";
-  std::cout<<heightdia.first<<"\n-----------";
+
+  // number of nodes
+  std::cout<<"Number of nodes are: "<<countNodes(root)<<"\n";
+
+  // getHeight
+  std::cout<<"Height is: "<<getHeight(root)<<"\n";
+
+  // getDiameter
+  std::cout<<"Diameter is: "<<getDiameter(root)<<"\n";
+
+  // getDiameterFast
+  std::pair<int,int> answer = getDiameterFast(root);
+  std::cout<<"Fast Height is: "<<answer.second<<"\n";
+  std::cout<<"Fast Diameter is: "<<answer.first<<"\n";
 
   return 0;
 }

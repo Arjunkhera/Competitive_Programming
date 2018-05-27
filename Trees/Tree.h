@@ -5,7 +5,6 @@
 #include<queue>
 #include<iomanip>
 
-
 struct tree{
   int data;
   tree* left;
@@ -24,7 +23,7 @@ void displayLevelorderRecursive(tree*);
 void displayBeautiful(tree*);
 int countNodes(tree*);
 int getHeight(tree*);
-int getDepth(tree*,tree*);
+void getDepth(tree*,int,int&,int);
 int getDiameter(tree*);
 std::pair<int,int> getDiameterFast(tree*);
 
