@@ -1,9 +1,11 @@
 ## A curated list of links and codes for competitive programming
 
 ### Status :
-Currently questions relating to Linked lists are being added[ 9.02.18 ]. Check out the linked_lists folder for updates.
+[29.05.18]Currently working my way through Leetcode. Due to crunch of time lesser solutions are   
+being posted. However, i will try to add as many as possible.
 
-Update [ 17.2.18 ] Work started on Tree's. Linked lists shall be eventually phases out to completion soon.
+Some C/C++ notes are also being worked on, and will mostly cover STL and stuff.
+
 ### Goals :
 1. Implementations of common data structures and their related questions.
 2. Common algorithm questions asked in placements and interviews.
