@@ -4,8 +4,9 @@
 #include<string>
 #include<typeinfo>
 
-using namespace std;
+#define all(container) container.begin(),container.end()
 
+using namespace std;
 
 void vectorTraversal(){
 
@@ -80,7 +81,11 @@ void sortingVector(){
 int main(){
 
   //vectorTraversal();
-  vectorModifications();
+  //vectorModifications();
   //sortingVector();
 
+  string str = "";
+  cout<<str.length()<<"{}"<<str.length()-1<<endl;
+
+  return 0;
 }
