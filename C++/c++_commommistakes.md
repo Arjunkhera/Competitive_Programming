@@ -1,3 +1,14 @@
+### Comparing int and string element
+
+In a hurry, and you compare str[i] == 1 :(
+Thats is a very common and irritating mistake cause thats always gonna return a
+true value.
+
+corrects way is as follows :
+```c++
+if(str[i] == '1')
+```
+
 ### How to print a number in its binary representation
 
 Use bitset,but remember that the size of bitset cannot be a variable, not even a const variable. It has to be a constant.
