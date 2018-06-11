@@ -2,6 +2,39 @@
 
 using namespace std;
 
+string elegant(string str){
+
+  string answer;
+  if(str.empty())
+    return answer;
+  if(str.size() == 1)
+    return str;
+  int n = str.size();
+  int length = 0;
+  int start,end,i,j;
+
+  for(int k = 0;k < n;k++){
+    // odd length palindromes
+    for(i = k,j = k;i >= 0 && j < n && str[i] == str[j];i--,j++)
+      if(j-i+1 > length){
+        length = j-i+1;
+        start = i;
+        end = j;
+      }
+    // even length palindromes
+    for(i = k,j = k+1;i >= 0 && j < n && str[i] == str[j];i--,j++)
+      if(j-i+1 > length){
+        length = j-i+1;
+        start = i;
+        end = j;
+      }
+  }
+
+  for(int k = start;k <= end;k++)
+    answer.push_back(str[k]);
+  return answer;
+}
+
 string longestPalindrome(string s){
 
   int n = s.length();
@@ -52,5 +85,7 @@ int main(){
   cin>>str;
 
   cout<<longestPalindrome(str)<<endl;
+  cout<<elegant(str)<<endl;
+
   return 0;
 }
