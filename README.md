@@ -1,10 +1,10 @@
 ## A curated list of links and codes for competitive programming
 
 ### Status :
-[1.6.18] Past 50 Leetcode questions now :zap:
-Next Target --> 100 by 20/6/18 :fire:
+[11.6.18] Past 75 Leetcode questions now :zap:
+On course for Next Target --> 100 by 20/6/18 :fire:
 
-:rocket: Also targets for Interviewbit of 1000 points daily on track. Will post solutions soon.
+:rocket: Also targets for Interviewbit of 1000 points daily on track, with efforts ro reach 1500 daily :).Will post solutions soon.
 
 Some C/C++ notes are also being worked on, and will mostly cover STL and stuff.
 
