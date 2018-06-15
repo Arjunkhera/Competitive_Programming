@@ -21,4 +21,6 @@ Algorithmic Complexities written in the following order
     - [DFA solution](https://leetcode.com/problems/valid-number/discuss/23725/C++-My-thought-with-DFA)
 12. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
 13. [Valid Palindrome 2 : 3 methods, brute, itertaive or greedy->all easy](https://leetcode.com/problems/valid-palindrome-ii/description/)
-14. Shortest Palindrome [ hard ]
+14. [Shortest Palindrome->hard](https://leetcode.com/problems/shortest-palindrome/description/)
+  - bruteforce
+  - kmp
