@@ -1,7 +1,7 @@
 ## A curated list of links and codes for competitive programming
 
 ### Status :
-[16.6.18] Completed 100 Leetcode questions now :zap: beat my target by nearly 5 days :boom:
+[16.6.18] Completed 104 Leetcode questions now :zap: beat my target by nearly 5 days :boom:
 On course for Next Target --> 125 by 21/6/18 :fire:
 
 :rocket: Also targets for Interviewbit of 1000 points daily on track, with efforts ro reach 1500 daily :).Will post solutions soon.

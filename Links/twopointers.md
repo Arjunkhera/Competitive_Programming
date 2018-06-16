@@ -34,3 +34,19 @@ duplicates can be handled easily, check this [leetcode solution](https://leetcod
   - use binary search O(nlogn) in sorting method
 9. [Intersection of two arrays](https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82281/Two-C++-solutions:-hashtable-and-sort+binary-search.-Time-and-space-complexity-analyzed.)
   - check the leetcode question for further constraints
+10. [Array 3 pointers : good question](https://www.interviewbit.com/problems/array-3-pointers/)  
+  - brute force O(n^3)
+  - use three pointers, minimize at each step, and stop when out of bound cause no way left to minimize, as any other increment only widens the already max gap O(m+n+k)
+11. [Maximum consecutive 1's : modifications allowed m](https://www.interviewbit.com/problems/max-continuous-series-of-1s/)
+  - sliding concept O(n+m)
+  - [geeksforgeeks](https://www.geeksforgeeks.org/find-zeroes-to-be-flipped-so-that-number-of-consecutive-1s-is-maximized/)
+12. [minimize ablsolute difference](https://www.careercup.com/question?id=14805690)
+  - same as array 3 pointers
+13. [Find pair with given differece - assuming unsorted](https://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/)  
+  - brute O(n^2)
+  - sort(nlogn) + bsearch all elements(nlogn)
+  - sort(nlogn) + [linear search using two pointers(n)](https://www.interviewbit.com/problems/diffk/)
+14. [Valid Triangles](https://leetcode.com/problems/valid-triangle-number/description/)
+  - brute O(n^3)
+  - sort then search O(n^2)
+  - same approach as 3 closest question, gives much better results

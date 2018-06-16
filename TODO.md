@@ -6,3 +6,4 @@
 - [ ] Stocks Problem DP
 - [ ] Valid Number - Strings
 - [ ] Newtons Method for square root
+- [ ] why sorting works in min XOR pairs
