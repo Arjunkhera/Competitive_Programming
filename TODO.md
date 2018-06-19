@@ -8,3 +8,4 @@
 - [ ] Newtons Method for square root
 - [ ] why sorting works in min XOR pairs
 - [ ] segment trees + example of use in largest histogram
+- [ ] Tries : implementations + some examples + like anagrams

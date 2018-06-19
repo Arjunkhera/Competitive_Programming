@@ -24,3 +24,18 @@ Algorithmic Complexities written in the following order
 14. [Shortest Palindrome->hard](https://leetcode.com/problems/shortest-palindrome/description/)
   - bruteforce
   - kmp
+15. [Longest Substring without repeating characters]()https://leetcode.com/problems/longest-substring-without-repeating-characters/description/  
+  - bruteforce O(n^3)
+  - sliding window O(n) -> 2n
+  - sliding window optimized O(n) -> n
+
+16. Longest Substring with 2 unique characters : Locked on leetcode :/
+17. Longest Substring with k unique characters : Locked on leetcode :/
+
+18. [Substring with concatenation of words : very tough](https://leetcode.com/problems/substring-with-concatenation-of-all-words/description/)
+  - [without sliding window O(n-k)*k ](https://www.geeksforgeeks.org/find-starting-indices-substrings-string-s-made-concatenating-words-listl/)
+  - [with sliding window](https://www.programcreek.com/2014/06/leetcode-substring-with-concatenation-of-all-words-java/)
+
+19. [group anagram](https://leetcode.com/problems/group-anagrams/description/)
+  - sort + hash map O(nklogk)
+  - sort by frequency + hash map O(nk)
