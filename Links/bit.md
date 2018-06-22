@@ -10,6 +10,15 @@ else cout<<"Even";
 n = n & n-1;
 ```
 
+### Another trick to unset rightmost set bit
+note in -n, bits to the left of the rightmost set bit are inverted, and those to the right are always 0. Hence n & n-1 gives a number with only the rightmost set bit as 1
+```c++
+p = n & -n;
+// p has 1 only in the position of n's rightmost set bit
+n = n - p;
+// this removes rightmost set bit
+```
+
 [Must read article on bit manipulations](http://www.catonmat.net/blog/low-level-bit-hacks-you-absolutely-must-know/)
 
 1. [Single Number]()

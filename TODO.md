@@ -9,3 +9,5 @@
 - [ ] why sorting works in min XOR pairs
 - [ ] segment trees + example of use in largest histogram
 - [ ] Tries : implementations + some examples + like anagrams
+- [ ] Permutations Faster implementations
+- [ ] Combination Sum - dp solution
