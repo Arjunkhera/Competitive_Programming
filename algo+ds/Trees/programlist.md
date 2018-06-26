@@ -4,7 +4,7 @@
 2. Display : [ Preorder,Inorder,Postorder,LevelOrder ]
 3. Display LevelOrder [ recursive solution ]
 4. Display the tree beautifully
-5. Calculate : [ height,depth,diamter,number of nodes ]
+5. Calculate : [ height,depth,diameter,number of nodes ]
 6. Combined Diameter and Height [ fast method ]
 
 ## Separate programs

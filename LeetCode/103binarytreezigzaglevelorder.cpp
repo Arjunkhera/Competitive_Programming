@@ -2,6 +2,7 @@
 #include <vector>
 #include <stack>
 #include <queue>
+#include <deque>
 
 using namespace std;
 
@@ -127,6 +128,34 @@ vector<vector<int>> zigzagLevelOrder(tree* root){
     }
   }
 
+  return answer;
+}
+
+vector<vector<int>> zigzagLevelOrder_deque(tree* root){
+  vector<vector<int>> answer; vector<int> level;
+  if(root == nullptr) return answer;
+
+  deque<tree*> dq; bool flag = true; tree* temp;
+  dq.push_front(root); dq.push_back(nullptr);
+
+  while(1){
+    if(flag){
+      temp = dq.front(); dq.pop_front();
+      if(temp == nullptr && dq.empty()) { answer.push_back(level); break; }
+      if(temp == nullptr) { answer.push_back(level); level.clear(); dq.push_front(nullptr); flag = !flag; continue; }
+      level.push_back(temp->data);
+      if(temp->left != nullptr) dq.push_back(temp->left);
+      if(temp->right != nullptr) dq.push_back(temp->right);
+    }
+    else {
+      temp = dq.back(); dq.pop_back();
+      if(temp == nullptr && dq.empty()) { answer.push_back(level); break; }
+      if(temp == nullptr) { answer.push_back(level); level.clear(); dq.push_back(nullptr); flag = !flag; continue; }
+      level.push_back(temp->data);
+      if(temp->right != nullptr) dq.push_front(temp->right);
+      if(temp->left != nullptr) dq.push_front(temp->left);
+    }
+  }
   return answer;
 }
 

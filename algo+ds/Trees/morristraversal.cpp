@@ -4,39 +4,24 @@
 // inorder traversal with stack : iterative version
 void iterativeInorder(tree* root){
 
-  if(root == nullptr)
-    return;
+  if(root == nullptr) return;
+  tree* cur = root; std::stack<tree*> nodes;
 
-  tree* cur = root;
-  std::stack<tree*> nodes;
-  bool flag = false;
-
-  while(!flag){
+  while(cur && !nodes.empty()){
     if(cur != nullptr)
-      while(cur != nullptr){
-        nodes.push(cur);
-        cur = cur->left;
-      }
-    else
-      if(nodes.empty())
-        flag = true;
-      else{
-        cur = nodes.top();
-        nodes.pop();
-        std::cout<<cur->data<<" ";
-        cur = cur->right;
-      }
+      while(cur != nullptr){ nodes.push(cur); cur = cur->left; }
+    else{ cur = nodes.top(); nodes.pop();
+          std::cout<<cur->data<<" "; cur = cur->right;
+    }
   }
 }
 
 // inorder traversal without stack -> constant space
 void morristraversal(tree* root){
 
-  if(root == nullptr)
-    return;
+  if(root == nullptr) return;
 
-  tree* current = root;
-  tree* prev = nullptr;
+  tree* current = root,prev = nullptr;
 
   while(current != nullptr){
 
@@ -138,7 +123,7 @@ void postOrderIterativeTwoStack(tree * root){
     cur = processed.top();
     processed.pop();
 
-    
+
 
   }
 }

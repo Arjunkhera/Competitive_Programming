@@ -1,7 +1,6 @@
 #include <iostream>
-#include <vector>
-#include <stack>
 #include <queue>
+#include <climits>
 
 using namespace std;
 
@@ -9,7 +8,8 @@ struct tree{
   int data;
   tree* left;
   tree* right;
-  tree(int dat):data(dat),left(nullptr),right(nullptr){}
+  tree* next;
+  tree(int dat):data(dat),left(nullptr),right(nullptr),next(nullptr){}
 };
 
 // input elements level wise
@@ -59,25 +59,18 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
-// solution function
-vector<int> inorderTraversal(tree* root){
+void connect(tree *root){
+  if(root == nullptr) return;
 
-  vector<int> answer;
-  if(root == nullptr) return answer;
-
-  tree* cur = root;
-  stack<tree*> stk;
-  while(cur != nullptr){ stk.push(cur); cur = cur->left; }
-
-  while(!stk.empty()){
-    cur = stk.top();  stk.pop();
-    answer.push_back(cur->data);
-    cur = cur->right;
-
-    while(cur != nullptr){ stk.push(cur); cur = cur->left; }
+  queue<tree*> q; q.push(root); q.push(nullptr); tree* temp;
+  while(1){
+    temp = q.front(); q.pop();
+    if(temp == nullptr && q.empty()) return;
+    if(temp == nullptr) { q.push(nullptr); continue; }
+    temp->next = q.front();
+    if(temp->left != nullptr) q.push(temp->left);
+    if(temp->right != nullptr) q.push(temp->right);
   }
-
-  return answer;
 }
 
 int main(){
@@ -85,12 +78,9 @@ int main(){
   tree* root = nullptr;
   readLevelOrder(root);
 
+  connect(root);
   displayInOrder(root);
-  std::cout<<"\n-----compare-------\n";
-  vector<int> answer = inorderTraversal(root);
-  for(auto i : answer)
-    std::cout<<i<<" ";
-  std::cout<<"\n";
-
   return 0;
 }
+
+// 4 3 7 2 5 6 9 -1 -1 -1 -1 -1 -1 -1 -1

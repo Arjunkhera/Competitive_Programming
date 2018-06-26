@@ -88,27 +88,27 @@ void displayLevelOrder(tree* root){
   }
 }
 
-tree* solve(vector<int>& preorder,int start,int finish,vector<int>& inorder,int st,int fn){
+tree* solve(vector<int>& postorder,int start,int finish,vector<int>& inorder,int st,int fn){
   // base case
   if(start > finish) return nullptr;
-  if(start == finish){ tree* temp = new tree(preorder[start]); return temp; }
+  if(start == finish){ tree* temp = new tree(postorder[finish]); return temp; }
 
   // recursive case
-  int temp,search = preorder[start],i = st,j = start;
+  int temp,search = postorder[finish],i = st,j = start;
   for(;i <= fn;i++) if(inorder[i] == search) break;
 
-  tree* root = new tree(preorder[start]); temp = i-st;
-  root->left = solve(preorder,start+1,j+temp,inorder,st,i-1);
-  root->right = solve(preorder,j+temp+1,finish,inorder,i+1,fn);
+  tree* root = new tree(postorder[finish]); temp = i-st;
+  root->left = solve(postorder,start,start+temp-1,inorder,st,i-1);
+  root->right = solve(postorder,start+temp,finish-1,inorder,i+1,fn);
   return root;
 }
 
 // solution function
-tree* buildTree(vector<int>& preorder, vector<int>& inorder){
+tree* buildTree(vector<int>& inorder, vector<int>& postorder){
 
-  if(preorder.empty() || preorder.size() != inorder.size()) return nullptr;
+  if(postorder.empty() || postorder.size() != inorder.size()) return nullptr;
 
-  return solve(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1);
+  return solve(postorder,0,postorder.size()-1,inorder,0,inorder.size()-1);
 }
 
 int main(){

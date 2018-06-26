@@ -70,14 +70,25 @@ bool isSame(tree* first, tree* second){
   return false;
 }
 
-
-// use the concept of queue in levelorder traversal for an iterative solution
 // solution function : recursive solution
 bool isSymmetric(tree* root){
 
   return isSame(root->left,root->right);
 }
 
+// use the concept of queue in levelorder traversal for an iterative solution
+bool isSymmetric_iterative(tree* root){
+  queue<tree*> q; tree* first; tree* second;
+  q.push(root); q.push(root);
+  while(!q.empty()){
+    first = q.front(); q.pop(); second = q.front(); q.pop();
+    if(first == nullptr && second == nullptr) continue;
+    if(first == nullptr || second == nullptr) return false;
+    if(first->data != second->data) return false;
+    q.push(first->left); q.push(second->right); q.push(first->right); q.push(second->left);
+  }
+  return true;
+}
 
 int main(){
 
