@@ -73,6 +73,21 @@ void connect(tree *root){
   }
 }
 
+// using constant space
+void connectConstantSpace(tree *root){
+  if(root == nullptr) return;
+
+  for(tree* head = root; head != nullptr;){
+      tree* nextrowhead = new tree(0); tree* nextrowtail = nextrowhead;
+      for(tree* row = head; row != nullptr; ){
+        if(row->left != nullptr){ nextrowtail->next = row->left; nextrowtail = row->left; }
+        if(row->right != nullptr){ nextrowtail->next = row->right; nextrowtail = row->right; }
+        row = row->next;
+      }
+      head = nextrowhead->next;
+  }
+}
+
 int main(){
 
   tree* root = nullptr;

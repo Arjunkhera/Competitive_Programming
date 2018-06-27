@@ -39,7 +39,20 @@
 8. [Construct binary tree from inorder and postorder](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
   - extremely similar to the above question
 9. [making next level pointers ](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)  
-  - just a small change to levelorder traversal
+  - just a small change to levelorder traversal, but does not use constant space
 10. [making next level pointers  2](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
  - same as above, only here the tree is not perfect, but levelorder solution works for all cases
  - the iterative solution uses O(1) space, keep that in mind for an optimised solution
+11. [Invert Binary tree](https://leetcode.com/problems/invert-binary-tree/description/)
+  - works on the same principle as mirror image
+12. [Path sum](https://leetcode.com/problems/path-sum/description/)
+  - simple recursion
+13. [Path sum 2](https://leetcode.com/problems/path-sum-ii/description/)
+  - just a mix of backtracking, remember to pass by reference
+14. [Min depth](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+  - simple recursion, just take care of the edge cases
+15. [balanced binary tree](https://leetcode.com/problems/balanced-binary-tree/description/)
+  - top down is O(n^2)
+  - bottom up is O(n) similar to the fast diameter method
+16. [flatten btree to linked list](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+  - just a small nice change to morris traversal,and it works beautifully

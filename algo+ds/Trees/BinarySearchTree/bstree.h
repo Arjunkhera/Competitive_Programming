@@ -63,7 +63,7 @@ node<t>* input(node<t> *root){
 template<typename t>
 node<t>* search(node<t> *root,t find){
   if(root == nullptr)
-    return false;
+    return nullptr;
 
   if(root->data == find)
     return root;
