@@ -78,7 +78,7 @@ int largestRectangleArea3(vector<int>& heights){
   vector<int> index;
 
   for(int i = 0; i < heights.size(); i++){
-    while(index.size() > 0 && heights[index.back()] > heights[i]){
+    while(index.size() > 0 && heights[index.back()] >= heights[i]){
       int h = heights[index.back()];
       index.pop_back();
 

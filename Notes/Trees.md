@@ -56,3 +56,7 @@
   - bottom up is O(n) similar to the fast diameter method
 16. [flatten btree to linked list](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
   - just a small nice change to morris traversal,and it works beautifully
+17. [Least common ancestor](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+  - using path calculation in vector O(n)
+  - using bottom up recursion O(n)
+18. [Least common ancestor of bst]()

@@ -6,7 +6,7 @@
 2. [Largest Rectangle Area](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
   - brute force O(n^2)
   - [divide and conquer O(nlogn) using segment trees](https://www.geeksforgeeks.org/largest-rectangular-area-in-a-histogram-set-1/)
-  - [using stacks O(n)]()
+  - [using stacks O(n)](https://www.geeksforgeeks.org/largest-rectangle-under-histogram/)
 
 3. [Sliding window maximum](https://leetcode.com/problems/sliding-window-maximum/description/)  
   - brute force O(k*n)

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// solution function
+// solution function : using bfs
 int Jump(vector<int>& nums){
   if(nums.size() == 1) return 1;
 
@@ -35,12 +35,6 @@ int Jumpdp(vector<int>& nums){
         break;
       }
       else dp[i] = min(dp[i],1+dp[i+j]);
-
-  /*
-  for(long int i = 0;i < dp.size();i++)
-    cout<<dp[i]<<" ";
-  cout<<endl;
-  */
 
   return dp[0];
 }
