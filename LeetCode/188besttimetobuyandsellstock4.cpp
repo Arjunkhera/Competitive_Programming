@@ -1,87 +1,52 @@
 #include<iostream>
 #include<vector>
 #include<climits>
-#include<queue>
-#include<deque>
 
 using namespace std;
 
-int maxProfit(int k,vector<int>& prices){
+// to avoid TLE
+int maxProfit2(vector<int>& prices){
+  if(prices.size() == 0 || prices.size() == 1) return 0;
 
-  if(prices.size() == 0 || prices.size() == 1)
-    return 0;
-
-  int n = prices.size();
-  deque<pair<int,int>> arr;
-
-  int i = 0;
-  while(i < n-1){
-    while(i < n-1 && prices[i] >= prices[i+1])
-      i++;
-    if(i == n-1)
-      break;
-    arr.push_back(make_pair(i,i+1));
-    i++;
-  }
-
-  for(auto i:arr)
-    cout<<i.first<<" "<<i.second<<endl;
-
-  priority_queue< int,vector<int>,greater<int> > final;
-  pair<int,int> first,second;
-  while(!arr.empty()){
-    first = arr.front();
-    arr.pop_front();
-
-    if(arr.empty()){
-      cout<<"adding : "<<prices[first.second]-prices[first.first]<<endl;
-      final.push(prices[first.second]-prices[first.first]);
-      break;
-    }
-
-    second = arr.front();
-    arr.pop_front();
-
-    if(prices[second.first] >= prices[first.first]){
-      if(second.second >= prices[first.second])
-        prices[first.second] = prices[second.second];
-      arr.push_front(first);
-    }
-    else {
-      cout<<"adding : "<<prices[first.second]-prices[first.first]<<endl;
-      final.push(prices[first.second]-prices[first.first]);
-      arr.push_front(second);
-    }
-  }
-
-  while(final.size() > k)
-    final.pop();
   int answer = 0;
-  while(!final.empty()){
-    answer = answer + final.top();
-    final.pop();
-  }
-
+  for(int i = 1;i < prices.size();i++) if(prices[i] > prices[i-1]) answer += prices[i]-prices[i-1];
   return answer;
 }
 
+// solution function
+int maxProfit(int k,vector<int>& prices){
+  if(prices.size() == 0 || prices.size() == 1) return 0;
+
+  int n = prices.size();
+  // special case, when there is no limit : same as buysandsellstock2
+  if(k >= n/2) return maxProfit2(prices);
+
+  int low,count = 1; vector<vector<int>> dp(2,vector<int>(n,0));
+  for(int j = 1;j <= k;j++){
+    low = prices[0];
+    for(int i = 1;i < n;i++){
+      low = min(low,prices[i]-dp[(count+1)%2][i-1]);
+      dp[count][i] = max(dp[count][i-1],prices[i]-low);
+    }
+    count = (count+1)%2;
+  }
+  return dp[(count+1)%2][n-1];
+}
+
+// driver function
 int main(){
 
   vector<int> arr;
-  int temp,k;
-  cin>>k>>temp;
+  int temp;
+  cin>>temp;
 
   while(temp != -1){
     arr.push_back(temp);
     cin>>temp;
   }
+  cin>>temp;
 
-  cout<<maxProfit(k,arr)<<endl;
+  cout<<maxProfit(temp,arr)<<endl;
 
   return 0;
 }
-
-/*
-for(auto i:arr)
-  cout<<i.first<<" "<<i.second<<endl;
-*/

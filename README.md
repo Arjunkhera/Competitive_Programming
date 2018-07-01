@@ -1,6 +1,9 @@
 ## A curated list of links and codes for competitive programming
 
 ### Status :
+
+[1.7.18] Currently at 147 Leetcode questions.Behind by almost 8 questions.However on the brighter side i have started making extensive notes of solves questions, and started posting some interviewbit solutions.
+
 [26.6.18] Major changes in folders. I will continue to improve the repository. You can check out a range of notes in markdown available in the notes folder.Till then bear with the pains of an expanding repository.
 
 [25.6.18] A break in progress due to dish tv hackathon. Though we made it to the finals clearing the first round, we could not win it. Still a cool experience, if you want you can check out some stuff of our Team Rocket in my dishathon repository.
