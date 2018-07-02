@@ -97,7 +97,7 @@ void f(const vector<int>& v) {
 
 ```
 
-Passing a const reference to a vector and 
+Passing a const reference to a vector and
 
 ```c++
 void f(const vector<int>& v) {
@@ -113,7 +113,7 @@ void f(const vector<int>& v) {
 
 ## Standard templates for STL
 
-Provided from topcoder article, though I would reccommend against using them frequently,
+Provided from topcoder article, though I would recommend against using them frequently,
 however they can be used as a reference or a quick lookup in case you are forgetting stuff.
 
 ```c++
