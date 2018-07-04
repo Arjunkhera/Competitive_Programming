@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// be careful of integer overflow
+// be careful of integer overflow : for a faster method check leetcode pow question
 int mypower(int base,int exponent){
   int answer = 1;
   while(exponent){

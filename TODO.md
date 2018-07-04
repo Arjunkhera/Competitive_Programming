@@ -14,3 +14,4 @@
 - [ ] segment trees + example of use in largest histogram
 - [ ] dp solution of maximal rectangle
 - [ ] buy and sell stock 4 using heap and stack
+- [ ] Other methods of primality testing

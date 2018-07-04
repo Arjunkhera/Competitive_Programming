@@ -2,6 +2,13 @@
 
 ### Status :
 
+[4.7.18] Finally Hit 150 questions in Leetcode :fire: And 42K in interviewbit :zap:
+However, I have started some revision, means i will be lowering the targets significantly, about 2 to 3 Leetcode questions daily.
+
+Have started to post interviewbit solutions, can check them out. Also c++ notes and ds notes are being expanded significantly, can check them out.
+
+Lastly, I will posting solutions to a few competitive contests, starting with leetcode and hackerrank.
+
 [1.7.18] Currently at 147 Leetcode questions.Behind by almost 8 questions.However on the brighter side i have started making extensive notes of solves questions, and started posting some interviewbit solutions.
 
 [26.6.18] Major changes in folders. I will continue to improve the repository. You can check out a range of notes in markdown available in the notes folder.Till then bear with the pains of an expanding repository.
