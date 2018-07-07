@@ -24,3 +24,7 @@
 ####6. [excel : number to column](https://leetcode.com/problems/excel-sheet-column-title/description/)
   - works on the same principle as printing digits of a number, just a small change
   - [best explanation for n-1](https://leetcode.com/problems/excel-sheet-column-title/discuss/51404)
+####7. [reversing integer](https://leetcode.com/problems/reverse-integer/description/)
+  - O(n), just remember to check for overflow
+####8. [palindrome integer](https://leetcode.com/problems/palindrome-number/description/)
+  - O(n), just remember to check for trailing zeros, 100,2230 cannot be palindromes

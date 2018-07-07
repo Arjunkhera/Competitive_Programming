@@ -1,23 +1,23 @@
+// leetcode question 7
+
 #include<iostream>
 #include<climits>
 
 using namespace std;
 
+// solution function
 int reverse(int x){
-  int mod,temp,answer=0;
+  int temp,answer = 0;
   while(x){
-    mod = x%10;
-    temp = answer*10 + mod;
+    temp = answer*10 + x%10;
     // overflow detection
-    if( temp/10 != answer)
-      return 0;
-
-    answer = temp;
-    x /= 10;
+    if( temp/10 != answer) return 0;
+    answer = temp; x /= 10;
   }
   return answer;
 }
 
+// driver function
 int main(){
 
   int x;
