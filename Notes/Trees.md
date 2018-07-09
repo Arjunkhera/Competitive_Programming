@@ -18,6 +18,14 @@
 
 ### Questions :
 
+#### Using dfs and recursion
+1. [Fast diameter]()
+2. [Max sum path](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
+  - [solution](https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/39869/Simple-O(n)-algorithm-with-one-traversal-through-the-tree) works in O(n)
+3.
+
+#### Miscellaneous
+
 1. [Inorder traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
   - iterative O(n),O(n) using stacks  
   - recursive O(n),O(n)

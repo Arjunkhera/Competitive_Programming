@@ -31,6 +31,19 @@
   - single traversal solution O(n^2)
   - [geeksforgeeks](https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/)
 
+### 2d array : take it or leave it problems
+
+The following problems all have exponential solutions which can be converted into   
+2d dp array solutions.  
+
+1. ####0-1 Knapsack
+2. ####sum of subset
+3. ####[parition problem](https://www.geeksforgeeks.org/dynamic-programming-set-18-partition-problem/)
+4. ####[n digits with sum S](https://www.interviewbit.com/problems/n-digit-numbers-with-digit-sum-s-/)
+ - take care of the edge case of no leading zeros
+5. ####[tushars birthday party](https://www.interviewbit.com/problems/tushars-birthday-party/)
+
+
 ### Miscellaneous
 
 1. ####[maximum sum without adjacent elements](https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/)
@@ -43,7 +56,7 @@
 6. ####Palindrome partitioning - minimum cuts  
  - [GFG](https://www.geeksforgeeks.org/dynamic-programming-set-17-palindrome-partitioning/)  
  - [Cool O(n) space solution](https://leetcode.com/problems/palindrome-partitioning-ii/discuss/42198/My-solution-does-not-need-a-table-for-palindrome-is-it-right-It-uses-only-O(n)-space.)
-7. ####Palindrome partitioning - print all paritions
+7. #### Palindrome partitioning - print all paritions
  - [GFG]()  
 
 8. ####[Jump array : reachable or not ](https://leetcode.com/problems/jump-game/description/)
