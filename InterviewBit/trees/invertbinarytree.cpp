@@ -1,6 +1,8 @@
+// leetcode question 226
+
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <climits>
 
 using namespace std;
 
@@ -58,25 +60,56 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
-// solution function
-tree* lowestCommonAncestor(tree* root,tree* p,tree* q){
-   if(root == nullptr) return nullptr;
+// with newline after each level
+void displayLevelOrder(tree* root){
+  if(root == nullptr)
+    return;
 
-   if((root->data >= p->data && root->data <= q->data)||(root->data <= p->data && root->data >= q->data)) return root;
+  std::queue<tree*> nodes;
+  nodes.push(root);
+  nodes.push(nullptr);
+  tree* temp;
 
-   if(root->data > p->data) return lowestCommonAncestor(root->left,p,q);
-   return lowestCommonAncestor(root->right,p,q);
+  while(1){
+    temp = nodes.front();
+    nodes.pop();
+
+    if(temp == nullptr && nodes.empty())
+      break;
+    if(temp == nullptr){
+      std::cout<<"\n";
+      nodes.push(nullptr);
+      continue;
+    }
+
+    std::cout<<temp->data<<" ";
+    if(temp->left != nullptr)
+      nodes.push(temp->left);
+    if(temp->right != nullptr)
+      nodes.push(temp->right);
+  }
+}
+
+tree* invertTree(tree* root){
+  if(root == nullptr) return nullptr;
+
+  tree* temp = root->left;
+  root->left = invertTree(root->right);
+  root->right = invertTree(temp);
+  return root;
 }
 
 int main(){
 
-  tree* root = nullptr;
+  tree* root;
   readLevelOrder(root);
-  tree* t1; tree* t2;
-  tree* answer = lowestCommonAncestor(root,t1,t2);
-  cout<<answer->data<<endl;
+
+  displayLevelOrder(root);
+  cout<<"-----\n";
+  root = invertTree(root);
+  displayLevelOrder(root);
+  //displayInOrder(root);
+  std::cout<<"\n";
 
   return 0;
 }
-
-// 4 3 7 2 5 6 9 -1 -1 -1 -1 -1 -1 -1 -1

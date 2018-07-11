@@ -58,47 +58,67 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
+// with newline after each level
+void displayLevelOrder(tree* root){
+  if(root == nullptr)
+    return;
+
+  std::queue<tree*> nodes;
+  nodes.push(root);
+  nodes.push(nullptr);
+  tree* temp;
+
+  while(1){
+    temp = nodes.front();
+    nodes.pop();
+
+    if(temp == nullptr && nodes.empty())
+      break;
+    if(temp == nullptr){
+      std::cout<<"\n";
+      nodes.push(nullptr);
+      continue;
+    }
+
+    std::cout<<temp->data<<" ";
+    if(temp->left != nullptr)
+      nodes.push(temp->left);
+    if(temp->right != nullptr)
+      nodes.push(temp->right);
+  }
+}
+
 // helper function
-void inorder(tree *root,tree* &prev,tree* &first,tree* &second){
-  // base case
+void inorderforkth(tree* root,int k,int &curpos,int &answer){
   if(root == nullptr) return;
+  if(k == curpos) return;
 
-  inorder(root->left,prev,first,second);
-
-  if(prev != nullptr && prev->data > root->data)
-    { if(first == nullptr) first = prev; second = root; }
-  prev = root;
-
-  inorder(root->right,prev,first,second);
+  inorderforkth(root->left,k,curpos,answer);
+  curpos++; if(k == curpos) { answer = root->data; return; }
+  inorderforkth(root->right,k,curpos,answer);
 }
 
 // solution function
-void recoverTree(tree* root){
-  tree* prev = nullptr;
-  tree* first = nullptr;
-  tree* second = nullptr;
+int kthSmallest(tree* root,int k) {
+  if(root == nullptr) return 0;
+  int curpos = 0,answer = 0;
 
-  inorder(root,prev,first,second);
-
-  int temp = first->data;
-  first->data = second->data;
-  second->data = temp;
+  inorderforkth(root,k,curpos,answer);
+  return answer;
 }
 
+// driver function
 int main(){
 
-  tree* root = nullptr;
+  tree* root;
   readLevelOrder(root);
 
-  displayInOrder(root);
-  std::cout<<"\n";
+  int k; cin>>k;
 
-  recoverTree(root);
-
-  displayInOrder(root);
-  std::cout<<"\n";
-
+  cout<<kthSmallest(root,k)<<endl;
   return 0;
 }
 
-// 4 3 7 2 5 6 9 -1 -1 -1 -1 -1 -1 -1 -1
+/*
+3 5 1 6 2 0 8 -1 -1 7 4 -1 -1 -1 -1 -1 -1 -1 -1
+*/

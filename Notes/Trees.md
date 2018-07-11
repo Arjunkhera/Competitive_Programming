@@ -15,6 +15,7 @@
 ### Good Reads
 1. [Light intro](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html)
 2. [All in one : a heavy read](http://liacs.leidenuniv.nl/~deutzah/DS/september28.pdf)
+3. [Morris tree traversal](https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/)
 
 ### Questions :
 
@@ -23,6 +24,24 @@
 2. [Max sum path](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
   - [solution](https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/39869/Simple-O(n)-algorithm-with-one-traversal-through-the-tree) works in O(n)
 3.
+
+#### BST common
+1. [Kth smallest element](https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/)
+  - [leetcode discuss](https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63660/3-ways-implemented-in-JAVA-(Python):-Binary-Search-in-order-iterative-and-recursive)
+  - [gfg version 1](https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/)
+  - [gfg version 2 - inorder ](https://www.geeksforgeeks.org/kth-largest-element-in-bst-when-modification-to-bst-is-not-allowed/)
+  - [gfg version 3 - morris for O(1) space](https://www.geeksforgeeks.org/kth-smallest-element-in-bst-using-o1-extra-space/)
+
+2. [Recover BST](https://leetcode.com/problems/recover-binary-search-tree/description/)  
+  - inorder takes O(n) space on stack
+  - use morris traversal for constant space
+  - [good explanation](https://leetcode.com/problems/recover-binary-search-tree/discuss/32562/Share-my-solutions-and-detailed-explanation-with-recursiveiterative-in-order-traversal-and-Morris-traversal)
+
+#### Root to leaf
+1. [Sum root to lead](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
+  - O(n) just recurse and store the answers
+2.   
+
 
 #### Miscellaneous
 
@@ -68,3 +87,5 @@
   - using path calculation in vector O(n)
   - using bottom up recursion O(n)
 18. [Least common ancestor of bst]()
+19. [Sum root to lead](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
+  - O(n) just recurse and store the answers

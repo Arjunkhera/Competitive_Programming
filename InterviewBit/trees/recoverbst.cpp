@@ -1,6 +1,8 @@
+// leetcode question 99
+
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <climits>
 
 using namespace std;
 
@@ -58,24 +60,49 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
+// helper function
+void inorder(TreeNode *root,TreeNode* &prev,TreeNode* &first,vector<int> &answer){
+  // base case
+  if(root == nullptr)
+    return;
+
+  inorder(root->left,prev,first,answer);
+
+  if(prev != nullptr && prev->val > root->val)
+    if(first == nullptr){
+      first = prev;
+      answer.push_back(first->val);
+      answer.push_back(root->val);
+    }
+    else answer[1] = root->val;
+  prev = root;
+
+  inorder(root->right,prev,first,answer);
+}
+
 // solution function
-tree* lowestCommonAncestor(tree* root,tree* p,tree* q){
-   if(root == nullptr) return nullptr;
+vector<int> recoverTree(tree* root){
+  vector<int> answer;
+  if(root == nullptr) return answer;
 
-   if((root->data >= p->data && root->data <= q->data)||(root->data <= p->data && root->data >= q->data)) return root;
+  TreeNode* prev = nullptr;
+  TreeNode* first = nullptr;
 
-   if(root->data > p->data) return lowestCommonAncestor(root->left,p,q);
-   return lowestCommonAncestor(root->right,p,q);
+  inorder(root,prev,first,answer);
+  if(answer[0] > answer[1]) swap(answer[0],answer[1]);
+  return answer;
 }
 
 int main(){
 
   tree* root = nullptr;
   readLevelOrder(root);
-  tree* t1; tree* t2;
-  tree* answer = lowestCommonAncestor(root,t1,t2);
-  cout<<answer->data<<endl;
 
+  displayInOrder(root);
+  std::cout<<"\n";
+
+  vector<int> answer = recoverTree(root);
+  for(auto i:answer) cout<<i<<" "; cout<<endl;
   return 0;
 }
 

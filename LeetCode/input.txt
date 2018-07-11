@@ -1,7 +1,20 @@
-eat
-tea
-nat
-tan
-ate
-bat
-end 
+vector<int> answer;
+if(root == nullptr) return answer;
+
+TreeNode* cur = root;
+stack<TreeNode*> stk,tempstk;
+stk.push(root);
+while(!stk.empty()){
+  cur = stk.top();
+  if(cur->left == nullptr && cur->right == nullptr) { answer.push_back(cur->val); stk.pop(); }
+  else if(tempstk.empty() || cur->val != tempstk.top()->val){
+    tempstk.push(cur);
+    if(cur->right != nullptr) stk.push(cur->right);
+    if(cur->left != nullptr) stk.push(cur->left);
+  }
+  else {
+    answer.push_back(cur->val);
+    stk.pop(); tempstk.pop();
+  }
+}
+return answer;

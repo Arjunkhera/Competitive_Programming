@@ -58,27 +58,16 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
-bool findnode(tree* root,tree* candidate,vector<int> &answer){
-  if(root == nullptr) return false;
-  if(root == candidate) return true;
-
-  answer.push_back(0);
-  if(findnode(root->left,candidate,answer)) return true;
-  answer.pop_back(); answer.push_back(1);
-  if(findnode(root->right,candidate,answer)) return true;
-  answer.pop_back();
-  return false;
-}
-
 // solution function
 tree* lowestCommonAncestor(tree* root,tree* p,tree* q){
-  vector<int> a,b; tree* temp = root;
-  findnode(root,p,a); findnode(root,q,b);
+  if(root == nullptr || root == p || root == q) return root;
 
-  for(int i = 0;i < a.size() && i < b.size() && a[i] == b[i]; i++){
-    if(a[i] == '0') temp = temp->left; else temp = temp->right;
-  }
-  return temp;
+   tree* left = lowestCommonAncestor(root->left,p,q);
+   tree* right = lowestCommonAncestor(root->right,p,q);
+
+   if(left != nullptr && right != nullptr) return root;
+   if(left != nullptr) return left;
+   return right;
 }
 
 int main(){

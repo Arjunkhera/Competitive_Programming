@@ -1,3 +1,5 @@
+// leetcode question 236
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -58,14 +60,30 @@ void displayInOrder(tree* root){
   displayInOrder(root->right);
 }
 
+bool findnode(TreeNode* root,int candidate,vector<int> &answer){
+  if(root == nullptr) return false;
+  if(root->val == candidate) return true;
+
+  answer.push_back(0);
+  if(findnode(root->left,candidate,answer)) return true;
+  answer.pop_back(); answer.push_back(1);
+  if(findnode(root->right,candidate,answer)) return true;
+  answer.pop_back();
+  return false;
+}
+
 // solution function
 tree* lowestCommonAncestor(tree* root,tree* p,tree* q){
-   if(root == nullptr) return nullptr;
+  vector<int> a,b; TreeNode* temp = root;
+   if(!findnode(root,p,a)) return -1;
+   if(!findnode(root,q,b)) return -1;
 
-   if((root->data >= p->data && root->data <= q->data)||(root->data <= p->data && root->data >= q->data)) return root;
-
-   if(root->data > p->data) return lowestCommonAncestor(root->left,p,q);
-   return lowestCommonAncestor(root->right,p,q);
+   // cout<<a<<endl; cout<<b<<endl;
+         
+   for(int i = 0;i < a.size() && i < b.size() && a[i] == b[i]; i++){
+     if(a[i] == 0) temp = temp->left; else temp = temp->right;
+   }
+   return temp->val;
 }
 
 int main(){
