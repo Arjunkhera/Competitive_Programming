@@ -1,7 +1,8 @@
+// leetcode question 104
+
 #include <iostream>
-#include <vector>
-#include <stack>
 #include <queue>
+#include <climits>
 
 using namespace std;
 
@@ -50,30 +51,22 @@ void readLevelOrder(tree* &root){
 }
 
 // display has various methods
-void displaypostOrder(tree* root){
+void displayInOrder(tree* root){
   if(root == nullptr)
     return;
 
-  displaypostOrder(root->left);
-  displaypostOrder(root->right);
+  displayInOrder(root->left);
   std::cout<<root->data<<" ";
+  displayInOrder(root->right);
 }
 
 // solution function
-vector<int> postorderTraversal(tree* root){
-  vector<int> answer;
-  if(!root) return answer;
+int maxDepth(tree* root){
+  // base case
+  if(root == nullptr)
+    return 0;
 
-  tree *temp,*prev = nullptr,*cur = root;
-  stack<tree*> stk;
-  while(cur || !stk.empty())
-    if(cur){ stk.push(cur); cur = cur->left; }
-    else{
-      temp = stk.top();
-      if(!temp->right || temp->right == prev){ prev = temp; answer.push_back(temp->data); stk.pop(); }
-      else cur = temp->right;
-    }
-  return answer;
+  return 1+std::max(maxDepth(root->left),maxDepth(root->right));
 }
 
 int main(){
@@ -81,16 +74,7 @@ int main(){
   tree* root = nullptr;
   readLevelOrder(root);
 
-  displaypostOrder(root);
-  std::cout<<"\n-----compare-------\n";
-  vector<int> answer = postorderTraversal(root);
-  for(auto i : answer)
-    std::cout<<i<<" ";
-  std::cout<<"\n";
+  std::cout<<"Depth is : "<<maxDepth(root)<<"\n";
 
   return 0;
 }
-
-/*
-1 2 3 5 6 7 8 -1 -1 -1 -1 -1 -1 -1 -1
-*/

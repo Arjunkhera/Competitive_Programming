@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 #include <queue>
+#include <algorithm>
 
 using namespace std;
 
@@ -50,29 +50,49 @@ void readLevelOrder(tree* &root){
 }
 
 // display has various methods
-void displaypostOrder(tree* root){
+void displayInOrder(tree* root){
   if(root == nullptr)
     return;
 
-  displaypostOrder(root->left);
-  displaypostOrder(root->right);
+  displayInOrder(root->left);
   std::cout<<root->data<<" ";
+  displayInOrder(root->right);
 }
 
 // solution function
-vector<int> postorderTraversal(tree* root){
-  vector<int> answer;
-  if(!root) return answer;
+vector<vector<int>> levelOrder(tree* root){
 
-  tree *temp,*prev = nullptr,*cur = root;
-  stack<tree*> stk;
-  while(cur || !stk.empty())
-    if(cur){ stk.push(cur); cur = cur->left; }
-    else{
-      temp = stk.top();
-      if(!temp->right || temp->right == prev){ prev = temp; answer.push_back(temp->data); stk.pop(); }
-      else cur = temp->right;
+  vector<vector<int>> answer;
+  if(root == nullptr)
+    return answer;
+
+  tree* temp;
+  queue<tree*> nodes;
+  nodes.push(root);
+  nodes.push(nullptr);
+  vector<int> level;
+
+  while(!nodes.empty()){
+    temp = nodes.front();
+    nodes.pop();
+
+    if(temp == nullptr && nodes.empty()){
+      answer.push_back(level);
+      break;
     }
+    if(temp == nullptr){
+      nodes.push(nullptr);
+      answer.push_back(level);
+      level.clear();
+      continue;
+    }
+    level.push_back(temp->data);
+    if(temp->left != nullptr)
+      nodes.push(temp->left);
+    if(temp->right != nullptr)
+      nodes.push(temp->right);
+  }
+  reverse(answer.begin(),answer.end());
   return answer;
 }
 
@@ -81,16 +101,14 @@ int main(){
   tree* root = nullptr;
   readLevelOrder(root);
 
-  displaypostOrder(root);
-  std::cout<<"\n-----compare-------\n";
-  vector<int> answer = postorderTraversal(root);
-  for(auto i : answer)
-    std::cout<<i<<" ";
-  std::cout<<"\n";
+  vector<vector<int>> answer = levelOrder(root);
+  for(int i = 0;i< answer.size();i++){
+    for(auto j = answer[i].begin();j!= answer[i].end();j++)
+      std::cout<<*j<<" ";
+    std::cout<<"\n";
+  }
 
   return 0;
 }
 
-/*
-1 2 3 5 6 7 8 -1 -1 -1 -1 -1 -1 -1 -1
-*/
+// 4 3 7 2 5 6 9 -1 -1 -1 -1 -1 -1 -1 -1

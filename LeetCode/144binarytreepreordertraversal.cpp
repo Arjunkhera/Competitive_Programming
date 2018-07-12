@@ -1,5 +1,3 @@
-// leetcode question 94
-
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -66,18 +64,14 @@ vector<int> preorderTraversal(tree* root){
   vector<int> answer;
   if(root == nullptr) return answer;
 
-  tree *cur,*temp,*prev;
+  tree* cur = root;
   stack<tree*> stk;
-  while(cur != nullptr && !stk.empty()){
-    if(cur != nullptr){
-      stk.push(cur);
-      cur = cur->left;
-    }
-    else {
-      temp = stk.top();
-      if(temp->right != nullptr && temp->right != prev) cur = cur->right;
-      else { answer.push_back(temp->val); prev = temp; stk.pop(); }
-    }
+  stk.push(root);
+  while(!stk.empty()){
+    cur = stk.top();  stk.pop();
+    answer.push_back(cur->data);
+    if(cur->right != nullptr) stk.push(cur->right);
+    if(cur->left != nullptr) stk.push(cur->left);
   }
   return answer;
 }

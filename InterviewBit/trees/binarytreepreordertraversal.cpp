@@ -1,3 +1,5 @@
+// leetcode question 144
+
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -50,29 +52,29 @@ void readLevelOrder(tree* &root){
 }
 
 // display has various methods
-void displaypostOrder(tree* root){
+void displaypreOrder(tree* root){
   if(root == nullptr)
     return;
 
-  displaypostOrder(root->left);
-  displaypostOrder(root->right);
   std::cout<<root->data<<" ";
+  displaypreOrder(root->left);
+  displaypreOrder(root->right);
 }
 
 // solution function
-vector<int> postorderTraversal(tree* root){
+vector<int> preorderTraversal(tree* root){
   vector<int> answer;
-  if(!root) return answer;
+  if(root == nullptr) return answer;
 
-  tree *temp,*prev = nullptr,*cur = root;
+  tree* cur = root;
   stack<tree*> stk;
-  while(cur || !stk.empty())
-    if(cur){ stk.push(cur); cur = cur->left; }
-    else{
-      temp = stk.top();
-      if(!temp->right || temp->right == prev){ prev = temp; answer.push_back(temp->data); stk.pop(); }
-      else cur = temp->right;
-    }
+  stk.push(root);
+  while(!stk.empty()){
+    cur = stk.top();  stk.pop();
+    answer.push_back(cur->data);
+    if(cur->right != nullptr) stk.push(cur->right);
+    if(cur->left != nullptr) stk.push(cur->left);
+  }
   return answer;
 }
 
@@ -81,9 +83,9 @@ int main(){
   tree* root = nullptr;
   readLevelOrder(root);
 
-  displaypostOrder(root);
+  displaypreOrder(root);
   std::cout<<"\n-----compare-------\n";
-  vector<int> answer = postorderTraversal(root);
+  vector<int> answer = preorderTraversal(root);
   for(auto i : answer)
     std::cout<<i<<" ";
   std::cout<<"\n";
