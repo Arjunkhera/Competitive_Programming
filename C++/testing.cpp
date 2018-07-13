@@ -3,14 +3,18 @@
 
 using namespace std;
 
-bool isEven(int n){
-  return !(n&1);
-}
-
 int main(){
 
-  int n; cin>>n;
-  if(isEven(n)) cout<<"Even\n"; else cout<<"Odd\n";
+  char str[] = "arjun";
+  cout<<str<<endl;
+
+  char *ptr = str;
+  cout<<ptr<<endl;
+
+  char c = 'a';
+  cout<<c<<endl;
+  ptr = &c;
+  cout<<ptr<<endl;
 
   return 0;
 }
