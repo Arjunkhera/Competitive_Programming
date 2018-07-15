@@ -3,6 +3,8 @@
 #include <iostream>
 #include <queue>
 #include <climits>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -90,28 +92,26 @@ void displayLevelOrder(tree* root){
   }
 }
 
-// helper function
-void traverse(tree *root,int curpos,vector<vector<int>> &answer){
-  if(root == nullptr) return;
-
-  answer[curpos].push_back(root->data);
-  traverse(root->left,curpos-1,answer);
-  traverse(root->right,curpos+1,answer);
-}
-
 // solution function
 vector<vector<int>> verticalOrder(tree* root){
-  vector<vector<int>> emt;
-  if(root == nullptr) return emt;
+  vector<vector<int>> answer;
+  if(root == nullptr) return answer;
 
-  tree *temp = root->left;
-  int left = 0,right = 0;
-  while(temp) { temp = temp->left; left++; }
-  temp = root->right;
-  while(temp) { temp = temp->right; right++; }
-  vector<vector<int>> answer(left+1+right);
+  map<int,vector<int>> lines;
+  queue<pair<tree*,int>> nodes;
+  nodes.emplace(root,0);
+  pair<tree*,int> element; int linenumber; tree* temp;
 
-  traverse(root,left,answer);
+  while(!nodes.empty()){
+    element = nodes.front(); temp = element.first; linenumber = element.second;
+    nodes.pop();
+
+    lines[linenumber].push_back(temp->data);
+    if(temp->left != nullptr) nodes.emplace(temp->left,linenumber-1);
+    if(temp->right != nullptr) nodes.emplace(temp->right,linenumber+1);
+  }
+
+  for(auto i:lines) answer.push_back(i.second);
   return answer;
 }
 

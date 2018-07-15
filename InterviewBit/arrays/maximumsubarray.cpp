@@ -1,3 +1,5 @@
+// leetcode question 53
+
 #include<iostream>
 #include<vector>
 
@@ -7,7 +9,7 @@ int maxCrossing(vector<int>& arr,int left,int mid,int right){
 
   int sum = 0;
   int leftHalf = 0;
-  for(int i = mid; i >= 0; i--){
+  for(int i = mid; i >= left; i--){
     sum += arr[i];
     if(sum > leftHalf)
       leftHalf = sum;
@@ -15,7 +17,7 @@ int maxCrossing(vector<int>& arr,int left,int mid,int right){
 
   sum = 0;
   int rightHalf = 0;
-  for(int i = mid+1; i < arr.size(); i++){
+  for(int i = mid+1; i <= right; i++){
     sum += arr[i];
     if(sum > rightHalf)
       rightHalf = sum;
@@ -35,7 +37,7 @@ int divideConquer(vector<int>& arr,int left,int right){
 
   int mid = left + (right-left)/2;
 
-  int leftHalf = divideConquer(arr,left,mid-1);
+  int leftHalf = divideConquer(arr,left,mid);
   int rightHalf = divideConquer(arr,mid+1,right);
   int crossing = maxCrossing(arr,left,mid,right);
 

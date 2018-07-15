@@ -2,7 +2,7 @@
 
 - [ ] Rabin Karp
 - [ ] Z algorithm
-- [ ] Maximum Subarray Product
+- [x] Maximum Subarray Product
 - [x] Stocks Problem DP
 - [ ] Valid Number - Strings
 - [ ] Newtons Method for square root
@@ -15,3 +15,5 @@
 - [ ] dp solution of maximal rectangle
 - [ ] buy and sell stock 4 using heap and stack
 - [ ] Other methods of primality testing
+- [ ] Variations of subarray
+- [ ] Red Black trees

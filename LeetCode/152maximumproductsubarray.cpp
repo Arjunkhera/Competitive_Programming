@@ -5,48 +5,21 @@
 using namespace std;
 
 int kadane(vector<int>& arr){
+  if(arr.empty()) return 0;
 
-  if(arr.empty())
-    return 0;
-
-  int answer = INT_MIN;
-  int positive = 1,negative = 1;
-  int i = 0;
-  bool truePositive = false;
-
-  while(i < arr.size()){
-
-    if(arr[i] == 0){
-      truePositive = false;
-      answer = (answer < 0)?0:answer;
-      positive = 1;
-      negative = 1;
-      i++;
-      continue;
-    }
-
-    if(arr[i] > 0){
-      truePositive = true;
-      positive = positive*arr[i];
-      negative = min(negative*arr[i],1);
-    }
-    else {
-      int temp = positive;
-      if(negative*arr[i] >= 1)
-        truePositive = true;
-      positive = max(negative*arr[i],1);
-      negative = temp*arr[i];
-    }
-
-    i++;
-    if(!truePositive && positive == 1)
-      continue;
-    answer = max(answer,positive);
+  int n = arr.size(),prod = 1,answer = INT_MIN;
+  for(int i = 0;i < n;i++){
+    prod *= arr[i];
+    answer = max(prod,answer);
+    if(arr[i] == 0) prod = 1;
   }
 
-  if(answer == INT_MIN)
-    answer = negative;
-
+  prod = 1;
+  for(int i = n-1;i >= 0;i--){
+    prod *= arr[i];
+    answer = max(prod,answer);
+    if(arr[i] == 0) prod = 1;
+  }
   return answer;
 }
 
@@ -64,6 +37,7 @@ int main(){
   }
 
   cout<<kadane(arr)<<endl;
+  // cout<<divideConquer(arr,0,arr.size()-1);
 
   return 0;
 }

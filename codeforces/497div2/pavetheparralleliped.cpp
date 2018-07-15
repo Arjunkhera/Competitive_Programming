@@ -35,13 +35,16 @@ int main(){
           pair<int,int> temp;
           if(B[j] < C[k]) { temp.first = B[j]; temp.second = C[k]; }
           else { temp.first = C[k]; temp.second = B[j]; }
-          int l = 0;
-          for(; l < answer[A[i]].size();l++)
+          int l = 0,n = answer[A[i]].size();
+          for(; l < n;l++)
             if(answer[A[i]][l].first == temp.first && answer[A[i]][l].second == temp.second) break;
           if(l == answer[A[i]].size()) answer[A[i]].push_back(temp);
         }
       }
     }
+
+    for(auto i:answer) { for(auto j:i.second) cout<<"{"<<j.first<<":"<<j.second<<"}"; cout<<"\n"; }
+
     for(auto m = answer.begin();m != answer.end();m++) finalans += m->second.size();
     cout<<finalans<<"\n";
   }
