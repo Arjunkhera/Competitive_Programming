@@ -2,25 +2,9 @@
 
 ### Status :
 
-[4.7.18] Finally Hit 150 questions in Leetcode :fire: And 42K in interviewbit :zap:
-However, I have started some revision, means i will be lowering the targets significantly, about 2 to 3 Leetcode questions daily.
+[ 16.07.18 ] Interviewbit revision ongoing, solutions are being posted regularly. Leetcode recent contest solutions are also being pushed.
 
-Have started to post interviewbit solutions, can check them out. Also c++ notes and ds notes are being expanded significantly, can check them out.
-
-Lastly, I will posting solutions to a few competitive contests, starting with leetcode and hackerrank.
-
-[1.7.18] Currently at 147 Leetcode questions.Behind by almost 8 questions.However on the brighter side i have started making extensive notes of solves questions, and started posting some interviewbit solutions.
-
-[26.6.18] Major changes in folders. I will continue to improve the repository. You can check out a range of notes in markdown available in the notes folder.Till then bear with the pains of an expanding repository.
-
-[25.6.18] A break in progress due to dish tv hackathon. Though we made it to the finals clearing the first round, we could not win it. Still a cool experience, if you want you can check out some stuff of our Team Rocket in my dishathon repository.
-
-Currently 125 Leetcode questions have been completed :zap:
-Next Target at --> 150 by 30/6/18 :fire:
-
-:rocket: Current average of 1168 points daily on interviewbit. Target to average more than 1800 in the coming days. Lets see if it works out. The solutions for the interviewbit questions wont be posted anytime soon. But when i will start my revision, which shall be around 15 of July, i shall start posting them sequentially.
-
-Some C/C++ notes are also being worked on, and will mostly cover STL and stuff.
+Contest solutions are available in folders of specific judges, you can check them out.
 
 ### Goals :
 1. Implementations of common data structures and their related questions.
@@ -32,5 +16,5 @@ Some C/C++ notes are also being worked on, and will mostly cover STL and stuff.
 
 ## Note :
 1. The project is still under active development.
-2. In case of any issue in the code, open a issue.
+2. In case of any bug in the code, open an issue.
 3. Codes currently are in c++, however solutions in other languages are welcome.

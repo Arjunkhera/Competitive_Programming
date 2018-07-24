@@ -1,13 +1,2 @@
-vector<int> answer;
-if(!root) return answer;
-
-TreeNode *temp,*prev = nullptr,*cur = root;
-stack<TreeNode*> stk;
-while(cur || !stk.empty())
-  if(cur){ stk.push(cur); cur = cur->left; }
-  else{
-    temp = stk.top();
-    if(!temp->right || temp->right == prev){ prev = temp; answer.push_back(temp->val); stk.pop(); }
-    else cur = temp->right;
-  }
-return answer;
+76 98 23 23 83 85 91 57 73 3 5 43 59 40 17 1 22 56 96 60 90 68 11 85 100 91 96 81 91 45 -1
+13

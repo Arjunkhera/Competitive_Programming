@@ -20,6 +20,7 @@ n = n - p;
 ```
 
 [Must read article on bit manipulations](http://www.catonmat.net/blog/low-level-bit-hacks-you-absolutely-must-know/)
+[this one too](http://graphics.stanford.edu/~seander/bithacks.html#OperationCounting)
 
 1. [Single Number]()
 2. [Single Number 2]()

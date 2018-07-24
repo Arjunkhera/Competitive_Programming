@@ -1,20 +1,22 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
-int main(){
+class test{
+public:
+  void print();
+};
 
-  char str[] = "arjun";
-  cout<<str<<endl;
+inline void test::print(){
+  cout<<"Inside the object\n";
+}
 
-  char *ptr = str;
-  cout<<ptr<<endl;
+int main() {
 
-  char c = 'a';
-  cout<<c<<endl;
-  ptr = &c;
-  cout<<ptr<<endl;
+  test t;
+  t.print();
 
-  return 0;
+	return 0;
 }

@@ -76,6 +76,7 @@
   - using two stacks
   - using a deque
 6. [Vertical Order](https://www.interviewbit.com/problems/vertical-order-traversal-of-binary-tree/)
+  - [geeksforgeeks](https://www.geeksforgeeks.org/print-binary-tree-vertical-order/)
 7. [making next level pointers ](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)  
   - just a small change to levelorder traversal, but does not use constant space
 8. [making next level pointers  2](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)

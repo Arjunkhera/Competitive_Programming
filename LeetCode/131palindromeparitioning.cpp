@@ -27,23 +27,16 @@ vector<vector<string>> solve(string str,vector<vector<int>> &dp,int start,int en
 }
 
 vector<vector<string>> partition(string s){
-
-  if(s.empty())
-    return 0;
-  if(s.size() == 1)
-    return 0;
+  if(s.empty()) return 0;
+  if(s.size() == 1) return 0;
 
   vector< vector<int> > dp(s.size(),vector<int>(s.size(),-1));
   return solve(s,dp,0,s.size()-1);
-
 }
 
 int main(){
+  string str; cin>>str;
 
-  string str;
-  cin>>str;
-
-  vector<vector<string>> answert = partition(str);
-
+  vector<vector<string>> answer = partition(str);
   return 0;
 }

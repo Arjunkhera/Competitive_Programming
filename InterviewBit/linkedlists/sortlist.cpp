@@ -1,3 +1,5 @@
+// leetcode question 148
+
 #include<iostream>
 
 using namespace std;
@@ -33,18 +35,13 @@ void display(node* head){
 }
 
 node* findMidpoint(node* head){
+  if(head == nullptr || head->next == nullptr) return head;
 
-  if(head == nullptr || head->next == nullptr)
-    return head;
-
-  node* slow = head;
-  node* fast = head;
-
+  node *slow = head,*fast = head;
   while(fast->next != nullptr && fast->next->next != nullptr){
     slow = slow->next;
     fast = fast->next->next;
   }
-
   return slow;
 }
 
@@ -66,19 +63,15 @@ node* merge(node* leftlist,node* rightlist){
       tail->next = nullptr;
     }
 
-  if(leftlist != nullptr)
-    tail->next = leftlist;
-  if(rightlist != nullptr)
-    tail->next = rightlist;
+  if(leftlist != nullptr) tail->next = leftlist;
+  if(rightlist != nullptr) tail->next = rightlist;
 
   return head->next;
 }
 
-// solution function
+// solution function : recursion
 node* sortList(node* head){
-
-  if(head == nullptr || head->next == nullptr)
-    return head;
+  if(head == nullptr || head->next == nullptr) return head;
 
   node* mid = findMidpoint(head);
 

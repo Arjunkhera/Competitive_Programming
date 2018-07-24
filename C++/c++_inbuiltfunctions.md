@@ -1,3 +1,5 @@
+[good read](http://www.fredosaurus.com/notes-cpp/index.html)
+
 ## Commonly used c++ inbuilt functions
 
 1. ####[swap](http://www.cplusplus.com/reference/utility/swap/)  

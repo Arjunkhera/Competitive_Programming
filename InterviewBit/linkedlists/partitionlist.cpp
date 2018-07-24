@@ -1,3 +1,5 @@
+// leetcode question 86
+
 #include<iostream>
 
 using namespace std;
@@ -33,30 +35,34 @@ void display(node* head){
 }
 
 // solution function
-node* insertionSortList(node* head){
-  if(head == nullptr || head->next == nullptr) return head;
+node* partition(node* head, int x){
+  if(head == nullptr)
+    return head;
 
-  node *temp,*prev,*cur = head->next;
-  head->next = nullptr;
+  node* smallList = new node(-1);
+  node* small = smallList;
+  node* largeList = new node(-1);
+  node* large = largeList;
+  node* cur = head;
 
-  while(cur != nullptr){
-    if(head->data > cur->data){
-      temp = cur;
+  while(cur != nullptr)
+    if(cur->data < x){
+      small->next = cur;
+      small = cur;
       cur = cur->next;
-      temp->next = head;
-      head = temp;
+      small->next = nullptr;
+      continue;
+    }
+    else{
+      large->next = cur;
+      large = cur;
+      cur = cur->next;
+      large->next = nullptr;
       continue;
     }
 
-    prev = head;
-    // use equality to make sorting stable
-    while(prev->next != nullptr && prev->next->data <= cur->data) prev = prev->next;
-
-    temp = cur;
-    cur = cur->next;
-    temp->next = prev->next;
-    prev->next = temp;
-  }
+  small->next = largeList->next;
+  head = smallList->next;
 
   return head;
 }
@@ -65,18 +71,11 @@ int main(){
 
   node* head = nullptr;
   readList(head);
-  display(head);
-  cout<<"\n";
 
-  head = insertionSortList(head);
+  head = partition(head,3);
 
   display(head);
   cout<<"\n";
 
   return 0;
 }
-
-/*
-input
-3 9 10 2 1 8 3 4 -1
-*/
