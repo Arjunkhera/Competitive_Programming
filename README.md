@@ -1,6 +1,6 @@
 ## A curated list of links and codes for competitive programming
 
-###Update 02.08.2018
+### Update 02.08.2018
 I got placed in Adobe :fire: the first company :zap: to visit the campus, prep work from leetcode,Interviewbit and gfg has really paid off.
 
 **This repository will be taking a break for about a month, but post that I will be updating it regularly.**
