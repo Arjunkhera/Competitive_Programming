@@ -1,10 +1,15 @@
 ## A curated list of links and codes for competitive programming
 
-### Status :
+###Update 02.08.2018
+I got placed in Adobe :fire: the first company :zap: to visit the campus, prep work from leetcode,Interviewbit and gfg has really paid off.
 
-[ 16.07.18 ] Interviewbit revision ongoing, solutions are being posted regularly. Leetcode recent contest solutions are also being pushed.
+**This repository will be taking a break for about a month, but post that I will be updating it regularly.**
 
-Contest solutions are available in folders of specific judges, you can check them out.
+Heres a snapshot of whats to come :
+1. All Interviewbit solutions
+2. All Leetcode solutions[ most of the questions till 150 completed. focus will be on 200 onwards ]
+3. Contests [  codeforces,hackerank,codechef,topcoder,leetcode ]
+4. A single review page repository for every ds, alongwith their implementations.
 
 ### Goals :
 1. Implementations of common data structures and their related questions.
