@@ -7,6 +7,16 @@
       <option name="url" value="https://artifactory.corp.adobe.com/artifactory/maven-helpx-snapshot" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="artifactory-dev-releases" />
+      <option name="name" value="Adobe Artifactory Repository" />
+      <option name="url" value="https://artifactory.corp.adobe.com/artifactory/maven-aem-dev" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-dexter-snapshot" />
       <option name="name" value="maven-dexter-snapshot" />
       <option name="url" value="https://artifactory.corp.adobe.com/artifactory/maven-dexter-snapshot/" />
